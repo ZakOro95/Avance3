@@ -16,6 +16,7 @@ app.use((req, res, next)=>{
 });
 
 // Rutas
+require('./server/routes/ProduccionPlayeras')(app)
 app.get('*',(req,res)=>{
     res.status(200).send({message:"Bienvenido al servidor NodeJS :D"});
 });
