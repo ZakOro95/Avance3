@@ -1,5 +1,7 @@
+import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ProduccionPlayerasService } from 'src/app/services/produccion-playeras.service';
+import { objetoPlayeras } from '../objetoplayeras';
 
 @Component({
   selector: 'app-pro-elite',
@@ -8,18 +10,32 @@ import { ProduccionPlayerasService } from 'src/app/services/produccion-playeras.
   
 })
 export class ProEliteComponent implements OnInit {
-  public Base: any
+  public Base: any;
+
+  public objetoplayeras= new objetoPlayeras;
 
   constructor(private _serviceProduccion:ProduccionPlayerasService){}
   ngOnInit(): void {
-    this.getDatos()
+    // this.getDatos()
     
+  }
+
+  mandar() {
+    this._serviceProduccion.mandar(this.objetoplayeras)
+    .then(response=>{
+      alert("Datos Guardados");
+      this.objetoplayeras= new objetoPlayeras;
+    })
+    .catch(error=>{
+      console.log(error)
+    })
   }
 
   getDatos(){
     this._serviceProduccion.getDatos()
     .then(response=>{
       console.log(response);
+      
       this.Base=response;
       
     })

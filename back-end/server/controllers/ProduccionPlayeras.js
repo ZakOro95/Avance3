@@ -11,13 +11,13 @@ function create(req,res){
 }
 
 function getAll(req,res){
-    ProduccionPlayeras.all(
+    ProduccionPlayeras.findAll(
     )
     .then(PP=>{
-        res.status(200).send({PP})
+        res.status(200).send(PP)
     })
     .catch(err=>{
-        res.status(500).send({err})
+        res.status(500).send(err)
     })
 }
 

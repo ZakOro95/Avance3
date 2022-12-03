@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ProEliteComponent } from './components/pro-elite/pro-elite.component';
 import { AppRouting } from './routes/routing';
 import { HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRouting,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

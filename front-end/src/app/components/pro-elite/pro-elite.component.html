@@ -1,1 +1,35 @@
-<p>pro-elite works!</p>
+<img src="../../../assets/pro.jpg" class="logo">
+<p>Pro-Elite!</p>
+<div>
+    <label>ID</label><br>
+    <input type="number" [(ngModel)]="objetoplayeras.ID"><br>
+    <label>Empleado</label><br>
+    <input type="text" [(ngModel)]="objetoplayeras.Empleado"><br>
+    <label>Hora de Llegada</label><br>
+    <input type="text" [(ngModel)]="objetoplayeras.Llegada"><br>
+    <label>Hora de Salida</label><br>
+    <input type="text" [(ngModel)]="objetoplayeras.Salida"><br>
+    <label>Playeras Producidas</label><br>
+    <input type="number" [(ngModel)]="objetoplayeras.Playeras"><br>
+    <button (click)="mandar()">Enviar Datos</button><br><br>
+</div>
+
+<button (click)="getDatos()">Ver Datos Guardados</button><br>
+<table *ngIf="Base">
+    <tr>
+        <td>ID</td>
+        <td>Empleado</td>
+        <td>Hora de Llegada</td>
+        <td>Hora de Salida</td>
+        <td>Playeras Producidas</td>
+        <td>Fecha de Creación</td>
+    </tr>
+    <tr *ngFor="let pp of Base">
+        <td>{{pp.ID}}</td>
+        <td>{{pp.Empleado}}</td>
+        <td>{{pp.Llegada}}</td>
+        <td>{{pp.Salida}}</td>
+        <td>{{pp.Playeras}}</td>
+        <td>{{pp.createdAt}}</td>
+    </tr>
+</table>
